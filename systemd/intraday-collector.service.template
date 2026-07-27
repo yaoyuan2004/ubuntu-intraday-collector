@@ -1,0 +1,18 @@
+[Unit]
+Description=Lightweight China market intraday collector
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/PATH/TO/ubuntu_intraday_collector
+ExecStart=/usr/bin/python3 /PATH/TO/ubuntu_intraday_collector/collector.py run
+Restart=on-failure
+RestartSec=30
+Environment=PYTHONUNBUFFERED=1
+Nice=10
+MemoryMax=128M
+CPUQuota=25%
+
+[Install]
+WantedBy=default.target

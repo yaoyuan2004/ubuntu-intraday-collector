@@ -1,0 +1,37 @@
+{
+  "timezone": "Asia/Shanghai",
+  "pool_path": "config/instruments.csv",
+  "database_path": "data/intraday.db",
+  "backup_dir": "data/backups",
+  "export_dir": "data/exports",
+  "request_timeout_seconds": 8,
+  "request_retries": 2,
+  "batch_size": 60,
+  "loop_sleep_seconds": 15,
+  "capture_delay_seconds": 20,
+  "slot_grace_minutes": 5,
+  "gold_max_delay_minutes": 45,
+  "schedules": {
+    "equity": [
+      {"start": "09:30", "end": "10:00", "every_minutes": 10},
+      {"start": "10:00", "end": "11:30", "every_minutes": 30},
+      {"start": "13:00", "end": "14:00", "every_minutes": 30},
+      {"start": "14:00", "end": "15:00", "every_minutes": 10}
+    ],
+    "gold": [
+      {"start": "00:00", "end": "02:30", "every_minutes": 30},
+      {"start": "09:00", "end": "15:30", "every_minutes": 30},
+      {"start": "20:00", "end": "23:30", "every_minutes": 30}
+    ]
+  },
+  "builtin_indices": [
+    {"symbol": "sh000001", "code": "000001", "name": "上证指数"},
+    {"symbol": "sz399001", "code": "399001", "name": "深证成指"},
+    {"symbol": "sz399006", "code": "399006", "name": "创业板指"},
+    {"symbol": "sh000300", "code": "000300", "name": "沪深300"},
+    {"symbol": "sh000688", "code": "000688", "name": "科创50"}
+  ],
+  "backup_at": "15:40",
+  "backup_keep_daily": 7,
+  "log_level": "INFO"
+}
